@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Needs" />
+            android:name=".NeedsFragment" />
     </application>
 
 </manifest>

@@ -1,6 +1,5 @@
 package an.mobile.project_pam;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,32 +35,49 @@ public class Transaksi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.transaksi);
 
-        recyclerView = findViewById(R.id.rvTransactions);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Initialize RecyclerView
+        setupRecyclerView();
 
-        expenseList = new ArrayList<>();
-        adapter = new TransaksiAdapter(expenseList);
-        recyclerView.setAdapter(adapter);
+        // Initialize Views
+        setupViews();
 
+        // Load Data
+        loadTransactionData();
+
+        // Setup Add Transaction Button
         Button addTransBtn = findViewById(R.id.btnAddTransaction);
         addTransBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Transaksi.this, Needs.class);
-                startActivity(intent);
+                // Launch NeedsFragment
+                NeedsFragment needsFragment = new NeedsFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, needsFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
+    }
 
+    private void setupRecyclerView() {
+        recyclerView = findViewById(R.id.rvTransactions);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        expenseList = new ArrayList<>();
+        adapter = new TransaksiAdapter(expenseList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setupViews() {
         TextView tvAmount = findViewById(R.id.tvAmount);
         TextView tvBudget = findViewById(R.id.tvBudget);
         tvAmount.setText("IDR 700,000");
         tvBudget.setText("Budget IDR 800,000");
+    }
 
+    private void loadTransactionData() {
         FirebaseFirestore firebase = FirebaseFirestore.getInstance();
-
         firebase.collection("datatracker").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                // If the request is successful
                 QuerySnapshot querySnapshot = task.getResult();
                 for (QueryDocumentSnapshot document : querySnapshot) {
                     String harga = document.getString("harga");
@@ -69,7 +86,6 @@ public class Transaksi extends AppCompatActivity {
                     Expense expense = new Expense(notes, date, harga);
                     adapter.addExpense(expense);
                 }
-            } else {
             }
         });
     }
@@ -105,7 +121,6 @@ public class Transaksi extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null && !result.isEmpty()) {
-                // Parse JSON response
                 List<Expense> expenses = new Gson().fromJson(result, new TypeToken<List<Expense>>() {}.getType());
                 expenseList.clear();
                 expenseList.addAll(expenses);
