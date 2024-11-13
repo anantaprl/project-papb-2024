@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/dashboard"
+        android:id="@+id/navDashboard"
+        android:title="Dashboard"/>
+
+    <item
+        android:icon="@drawable/needs"
+        android:id="@+id/navNeeds"
+        android:title="Needs"/>
+
+    <item
+        android:icon="@drawable/wants"
+        android:id="@+id/navWants"
+        android:title="Wants"/>
+
+    <item
+        android:icon="@drawable/budget"
+        android:id="@+id/navBudget"
+        android:title="Budget"/>
+
+    <item
+        android:icon="@drawable/categories"
+        android:id="@+id/navCategories"
+        android:title="Categories"/>
+
+    <item
+        android:icon="@drawable/reports"
+        android:id="@+id/navReports"
+        android:title="Reports"/>
+
+    <item
+        android:icon="@drawable/reminder"
+        android:id="@+id/navReminder"
+        android:title="Reminder"/>
+
+    <item
+        android:icon="@drawable/logout"
+        android:id="@+id/navLogout"
+        android:title="Logout"/>
+
+</menu>
