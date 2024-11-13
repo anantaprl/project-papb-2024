@@ -43,9 +43,9 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportsV
             tvAmount.setText(report.amount);
 
             if (report.amount.startsWith("-")) {
-                tvAmount.setTextColor(ctx.getResources().getColor(android.R.color.holo_red_dark)); // Expense color
+                tvAmount.setTextColor(ctx.getResources().getColor(android.R.color.holo_red_dark));
             } else {
-                tvAmount.setTextColor(ctx.getResources().getColor(android.R.color.holo_green_dark)); // Income color
+                tvAmount.setTextColor(ctx.getResources().getColor(android.R.color.holo_green_dark));
             }
 
             itemView.setOnClickListener(new View.OnClickListener() {
