@@ -44,7 +44,7 @@ public class WantsAdapter extends RecyclerView.Adapter<WantsAdapter.WantViewHold
 
         public WantViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgWantIcon = itemView.findViewById(R.id.img_beauty); // Sesuaikan ID jika diperlukan
+            imgWantIcon = itemView.findViewById(R.id.img_beauty); // Sesuaikan ID jika diperlukan.beauty); // Sesuaikan ID jika diperlukan
             tvWantName = itemView.findViewById(R.id.tvBeauty); // Sesuaikan ID jika diperlukan
             tvWantDate = itemView.findViewById(R.id.tvDateBeauty); // Sesuaikan ID jika diperlukan
             tvWantAmount = itemView.findViewById(R.id.tvAmountBeauty); // Sesuaikan ID jika diperlukan

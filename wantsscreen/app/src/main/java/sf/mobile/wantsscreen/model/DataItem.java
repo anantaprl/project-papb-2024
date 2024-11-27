@@ -1,44 +1,29 @@
 package sf.mobile.wantsscreen.model;
 
-public class DataItem {
-    String name;
-    String date;
-    String amount;
-    String imageResource;
+import com.google.gson.annotations.SerializedName;
 
+public class DataItem {
+    private String name;
+    private String date;
+    private String amount;
+
+    @SerializedName("imageResource") // Cocokkan dengan JSON
+    private String imageResource;
+
+    // Getters
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public String getImageResource() {
+    public String getImageResource() { // Gunakan imageResource di sini
         return imageResource;
     }
-
-    public void setImageResource(String imageResource) {
-        this.imageResource = imageResource;
-    }
-
-
-
-
 }

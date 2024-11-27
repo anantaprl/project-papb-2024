@@ -4,9 +4,8 @@ public class WantsItem {
     private String name;
     private String date;
     private String amount;
-    private int imageResId; // Untuk menyimpan ID drawable gambar
+    private int imageResId;  // Ubah ke tipe int
 
-    // Constructor
     public WantsItem(String name, String date, String amount, int imageResId) {
         this.name = name;
         this.date = date;
@@ -14,9 +13,36 @@ public class WantsItem {
         this.imageResId = imageResId;
     }
 
-    // Getter methods
-    public String getName() { return name; }
-    public String getDate() { return date; }
-    public String getAmount() { return amount; }
-    public int getImageResId() { return imageResId; }
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public int getImageResId() {  // Ini sekarang sesuai dengan tipe int
+        return imageResId;
+    }
+
+    public void setImageResId(int imageResId) {
+        this.imageResId = imageResId;
+    }
 }
