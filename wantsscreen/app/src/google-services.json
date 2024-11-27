@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "7528936000",
+    "firebase_url": "https://wants-6523a-default-rtdb.firebaseio.com",
+    "project_id": "wants-6523a",
+    "storage_bucket": "wants-6523a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7528936000:android:5df71a5fc55e2dc72d25a5",
+        "android_client_info": {
+          "package_name": "sf.mobile.wantsscreen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaMfDmgauSqFoUA6-Wx1PkLMrdJBkRmn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

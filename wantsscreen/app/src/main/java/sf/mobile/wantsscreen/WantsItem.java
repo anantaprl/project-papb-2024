@@ -1,48 +1,32 @@
 package sf.mobile.wantsscreen;
 
 public class WantsItem {
+    private String uid;
     private String name;
     private String date;
     private String amount;
-    private int imageResId;  // Ubah ke tipe int
+    private int imageResId; // Untuk menyimpan ID drawable gambar
 
-    public WantsItem(String name, String date, String amount, int imageResId) {
+    // Constructor
+    public WantsItem(String uid, String name, String date, String amount, int imageResId) {
+        this.uid = uid;
         this.name = name;
         this.date = date;
         this.amount = amount;
         this.imageResId = imageResId;
     }
 
-    // Getters and Setters
-    public String getName() {
-        return name;
+    // Getter methods
+    public String getName() { return name; }
+    public String getDate() { return date; }
+    public String getAmount() { return amount; }
+    public int getImageResId() { return imageResId; }
+
+    public String getUid() {
+        return uid;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public int getImageResId() {  // Ini sekarang sesuai dengan tipe int
-        return imageResId;
-    }
-
-    public void setImageResId(int imageResId) {
-        this.imageResId = imageResId;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

@@ -12,11 +12,15 @@ import java.util.List;
 public class WantsAdapter extends RecyclerView.Adapter<WantsAdapter.WantViewHolder> {
 
     private List<WantsItem> wantsList;
+    private RecyclerViewListener rvListener;
 
     public WantsAdapter(List<WantsItem> wantsList) {
         this.wantsList = wantsList;
     }
 
+    public void setDeleteBtnListener(RecyclerViewListener listener){
+        rvListener = listener;
+    }
     @NonNull
     @Override
     public WantViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,6 +35,12 @@ public class WantsAdapter extends RecyclerView.Adapter<WantsAdapter.WantViewHold
         holder.tvWantDate.setText(currentWant.getDate());
         holder.tvWantAmount.setText(currentWant.getAmount());
         holder.imgWantIcon.setImageResource(currentWant.getImageResId());
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rvListener.onDeleteClick(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
@@ -39,15 +49,16 @@ public class WantsAdapter extends RecyclerView.Adapter<WantsAdapter.WantViewHold
     }
 
     public static class WantViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imgWantIcon;
+        public ImageView imgWantIcon, deleteBtn;
         public TextView tvWantName, tvWantDate, tvWantAmount;
 
         public WantViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgWantIcon = itemView.findViewById(R.id.img_beauty); // Sesuaikan ID jika diperlukan.beauty); // Sesuaikan ID jika diperlukan
+            imgWantIcon = itemView.findViewById(R.id.img_beauty); // Sesuaikan ID jika diperlukan
             tvWantName = itemView.findViewById(R.id.tvBeauty); // Sesuaikan ID jika diperlukan
             tvWantDate = itemView.findViewById(R.id.tvDateBeauty); // Sesuaikan ID jika diperlukan
             tvWantAmount = itemView.findViewById(R.id.tvAmountBeauty); // Sesuaikan ID jika diperlukan
+            deleteBtn = itemView.findViewById(R.id.delete_item);
         }
     }
 }

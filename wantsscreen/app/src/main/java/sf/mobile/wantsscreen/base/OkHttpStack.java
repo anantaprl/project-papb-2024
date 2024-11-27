@@ -2,10 +2,6 @@ package sf.mobile.wantsscreen.base;
 
 import com.android.volley.toolbox.HurlStack;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import okhttp3.OkHttpClient;
 
 public class OkHttpStack extends HurlStack {
